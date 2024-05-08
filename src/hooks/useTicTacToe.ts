@@ -19,11 +19,13 @@ export const useTicTacToe = (boardSize: number) => {
 
   // Adjust winning patterns for dynamic board size
   const winning_patterns: any[] = [];
+
   for (let i = 0; i < boardSize; i++) {
     // Rows
     winning_patterns.push(
       Array.from({ length: boardSize }, (_, index) => i * boardSize + index)
     );
+
     // Columns
     winning_patterns.push(
       Array.from({ length: boardSize }, (_, index) => i + index * boardSize)
@@ -46,7 +48,6 @@ export const useTicTacToe = (boardSize: number) => {
       let isWinner = true;
       const firstCellValue = currentBoard[pattern[0]];
 
-      // Check if the first cell in the pattern is not null
       if (firstCellValue !== null) {
         // Check if all cells in the pattern have the same value
         for (let j = 1; j < pattern.length; j++) {
@@ -55,14 +56,13 @@ export const useTicTacToe = (boardSize: number) => {
             break;
           }
         }
-        // If all cells have the same value, return the winning symbol
         if (isWinner) {
           return firstCellValue;
         }
       }
     }
 
-    return null; // Return null if there's no winner
+    return null;
   };
 
   const resetGame = () => {

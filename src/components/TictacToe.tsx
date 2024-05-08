@@ -1,7 +1,7 @@
 import { useTicTacToe } from "../hooks/useTicTacToe";
 
 const TictacToe = () => {
-  const { board, resetGame, handleClick, getStatusMsg } = useTicTacToe(8);
+  const { board, resetGame, handleClick, getStatusMsg } = useTicTacToe(2);
 
   return (
     <div className="flex flex-col justify-center items-center gap-5">
@@ -17,8 +17,8 @@ const TictacToe = () => {
         </button>
       </div>
       <div
-        style={{ gridTemplateColumns: `repeat(${8}, minmax(0, 1fr))` }}
-        className={`grid grid-cols-4 gap-1 border border-black`}
+        style={{ gridTemplateColumns: `repeat(${2}, minmax(0, 1fr))` }}
+        className={`grid gap-1 border border-black`}
       >
         {board.map((board, index) => {
           return (
